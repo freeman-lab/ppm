@@ -29,7 +29,7 @@ def install(packages, globally):
         for name in packages:
             try:
                 cmd = ['pip', 'install', name]
-                output = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+                output = subprocess.check_output(cmd, stderr=subprocess.STDOUT, universal_newlines=True)
                 if not output.startswith('Requirement already satisfied'):
                     installed += [name]
             except subprocess.CalledProcessError as e:
